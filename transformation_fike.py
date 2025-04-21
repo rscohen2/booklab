@@ -22,6 +22,7 @@ def replace_word(string, term):
     return string, word
 
 def translate_word(word):
+
     pass
 
 print(replace_word(string22, 'chicken'))
