@@ -38,27 +38,29 @@ def replace_word(string, term):
     return string, word
 
 def translate_word_to_en(word):
-    translated_word= translator.translate(word, target_lang='en')
+    translated_word= model.translate(word, target_lang='en')
     return translated_word
 
 
 def translate_word_to_it(word):
-    translated_word = translator.translate(word, target_lang='it')
+    translated_word = model.translate(word, target_lang='it')
     return translated_word
 
 # print(replace_word(string22, 'chicken'))
 
-en_term = random.choice(string22.split(' '))
+# en_term = random.choice(string22.split(' '))
 
-term_in_it = translate_word_to_it(en_term)
+term_in_it = translate_word_to_it('hello')
+print(term_in_it)
 
-term_in_en = translate_word_to_en(term_in_it)
-
-
-# print(replace_word(string22, term_in_en), term_in_en, en_term, term_in_it)
-
-print(term_in_it, term_in_en)
-
+# term_in_en = translate_word_to_en(term_in_it)
+#
+#
+# # print(replace_word(string22, term_in_en), term_in_en, en_term, term_in_it)
+#
+# print(term_in_it, term_in_en)
+#
+# print(model.translate('into', target_lang='it'))
 
 
 
