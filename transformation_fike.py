@@ -58,10 +58,12 @@ def roundtrip_translation(string):
     # print(string)
     return string
 
-# def iterate_50_translations(string2):
-#     string_result = string2
-#     for _ in range(50):
-#         string_result = roundtrip_translation(string_result)
-#     return string_result
+def iterate_10_translations(string2):
+    string_result = string2
+    for _ in range(10):
+        string_result = roundtrip_translation(string_result)
+    return string_result
 
 print(roundtrip_translation(string22))
+
+print(iterate_10_translations(string22))
