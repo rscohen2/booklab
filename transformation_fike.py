@@ -1,5 +1,6 @@
 
-""" Lost in translation """
+""" Lost in translation
+ The goal of this project is to take text, transform it using roundtrip translation on a random word within the string, and return the transformed string."""
 
 import string
 import random
@@ -14,11 +15,7 @@ from easynmt import EasyNMT
 model_name = 'mbart50_m2m'
 # model_name = 'opus-mt'
 model = EasyNMT(model_name)
-# Create the translator
-# translator = EasyNMT(model_name=model_name, language_detection = 'fasttext')
 
-# translator = EasyNMT(model_name=model_name, language_detection = 'fasttext')
-# print(model.translate('This is a sentence we want to translate to German', target_lang='de'))
 
 
 string22 = ("I was talking of ladies smiling in the eyes of gentlemen; and of late so many smiles have been shed into Mr. Rochester’s eyes that they overflow like two cups filled above the brim: have you never remarked that?")
@@ -48,47 +45,23 @@ def translate_word_to_it(word):
     translated_word = model.translate(word,source_lang='en', target_lang='it')
     return translated_word
 
-# print(replace_word(string22, 'chicken'))
-
-# en_term = random.choice(string22.split(' '))
-
-# term_in_it = translate_word_to_it('hello')
-# print(term_in_it)
-
-# term_in_en = translate_word_to_en(term_in_it)
-#
-#
-# # print(replace_word(string22, term_in_en), term_in_en, en_term, term_in_it)
-#
-# print(term_in_it, term_in_en)
-#
-# print(model.translate('into', target_lang='it'))
 
 
 def roundtrip_translation(string):
-    orig_word = random.choice(string.split(' '))
+    # orig_word = random.choice(string.split(' '))
     # print(orig_word)
-    word = translate_word_to_it(orig_word)
+    string = translate_word_to_it(string)
     # print(word)
-    word = translate_word_to_en(word)
+    string = translate_word_to_en(string)
     # print(word)
-    string = string.replace(orig_word, word)
+    # string = string.replace(string, word)
     # print(string)
-    return string, word
+    return string
 
-# print(roundtrip_translation(string22))
+# def iterate_50_translations(string2):
+#     string_result = string2
+#     for _ in range(50):
+#         string_result = roundtrip_translation(string_result)
+#     return string_result
 
-# orig_word = 'smiling'
-# word = translate_word_to_it(orig_word)
-# print(word)
-
-# print(translate_word_to_it("hello"))  # Should print "ciao"
-
-
-def iterate_50_translations(string_result):
-    # translation_count = 0
-    for _ in range(50):
-        string_result = roundtrip_translation(string_result[0])
-    return string_result
-
-print(iterate_50_translations(string22))
+print(roundtrip_translation(string22))
