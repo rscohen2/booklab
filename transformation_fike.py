@@ -10,9 +10,13 @@ nltk.download('punkt_tab')
 from easynmt import EasyNMT
 
 model_name = 'mbart50_m2m'
+# model_name = 'opus-mt'
+model = EasyNMT(model_name)
 # Create the translator
-translator = EasyNMT(model_name=model_name, language_detection = 'fasttext')
+# translator = EasyNMT(model_name=model_name, language_detection = 'fasttext')
 
+# translator = EasyNMT(model_name=model_name, language_detection = 'fasttext')
+print(model.translate('This is a sentence we want to translate to German', target_lang='de'))
 
 
 string22 = ("I was talking of ladies smiling in the eyes of gentlemen; and of late so many smiles have been shed into Mr. Rochester’s eyes that they overflow like two cups filled above the brim: have you never remarked that?")
@@ -51,9 +55,9 @@ term_in_it = translate_word_to_it(en_term)
 term_in_en = translate_word_to_en(term_in_it)
 
 
-print(replace_word(string22, term_in_en), term_in_en, en_term, term_in_it)
+# print(replace_word(string22, term_in_en), term_in_en, en_term, term_in_it)
 
-
+print(term_in_it, term_in_en)
 
 
 
