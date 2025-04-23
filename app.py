@@ -18,7 +18,6 @@ df = pd.DataFrame({
 })
 
 
-
 # Layout of the app
 app.layout = html.Div([
     html.H1("Fruit Amounts in Different Cities"),
