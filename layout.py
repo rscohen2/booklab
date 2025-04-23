@@ -1,7 +1,6 @@
 # layout.py
 
-import dash_html_components as html
-import dash_core_components as dcc
+from dash import html, dcc
 
 # Define the layout
 layout = html.Div([
