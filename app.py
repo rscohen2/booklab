@@ -1,9 +1,14 @@
 # import dash
-# from dash import dcc, html
-# from dash.dependencies import Input, Output
-# import plotly.express as px
-import pandas as pd
+
+
+
 import dash
+from dash import dcc, html
+from dash.dependencies import Input, Output
+from layout import layout  # Import layout from layout.py
+import pandas as pd
+# Initialize the Dash app
+app = dash.Dash(__name__)
 
 # Sample data for the plot
 df = pd.DataFrame({
@@ -12,8 +17,7 @@ df = pd.DataFrame({
     "City": ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"]
 })
 
-# Initialize the Dash app
-# app = dash.Dash(__name__)
+
 
 # Layout of the app
 app.layout = html.Div([
@@ -50,4 +54,4 @@ def update_graph(city):
 
 # Run the app
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run(debug=True)
